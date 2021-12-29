@@ -29,7 +29,7 @@ void main() async {
           }
         }
       }
-      print('s/${match}/${match2}/g');
+      print('s/deferredPartUris:.*/${match2}/g');
       exit(0);
     }
   }catch(e){
