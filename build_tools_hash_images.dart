@@ -21,7 +21,7 @@ handle(List<FileSystemEntity> list) {
     String originKey = file.path.replaceAll('$basePath/', '');
     String hashKey = originKey.replaceAll('.', '-$md5Str.');
     String hashPath = file.path.replaceAll(originKey, hashKey);
-    print('originKey: $originKey, haskKey: $hashKey, pashPath: $hashPath');
+    // print('originKey: $originKey, haskKey: $hashKey, pashPath: $hashPath');
     // 重命名文件
     //file.rename(hashPath);
     // 在js文件中替换引用的位置
