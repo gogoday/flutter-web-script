@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:process_run/shell.dart';
 
-const basePath = '/Users/sampsonwang/workspace/signin_example/build/web';
+const basePath = '';
 
 void main() async {
   var list = await getImagesList();
