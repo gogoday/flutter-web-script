@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:process_run/shell.dart';
 
-const basePath = 'build/web';
+const basePath = 'build/web/assets';
 
 void main() async {
   var list = await getImagesList();
@@ -11,7 +11,7 @@ void main() async {
 
 // 1 遍历 assets/images 下的所有图片文件
 Future<List<FileSystemEntity>> getImagesList() async {
-  var imagesDir = Directory('$basePath/assets/images');
+  var imagesDir = Directory('$basePath/images');
   return imagesDir.listSync(recursive: true);
 }
 
@@ -36,7 +36,7 @@ String getMd5(String path) {
 // 4 在所有的js文件中查找替换文件
 replaceImageName(String originKey, String hashKey) async {
    var shell = Shell();
-   String cmdStr = 'sed -i s/${originKey.replaceAll('/', '\\/')}/${hashKey.replaceAll('/', '\\/')}/g $basePath/main.dart*js';
+   String cmdStr = 'sed -i "s/${originKey.replaceAll('/', '\\/')}/${hashKey.replaceAll('/', '\\/')}/g" $basePath/main.dart*js';
    print('cmdStr: $cmdStr');
    await shell.run(cmdStr);
 }
