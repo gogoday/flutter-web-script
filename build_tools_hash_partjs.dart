@@ -22,7 +22,7 @@ void main() async {
           String? jsPartName = f.group(0);
           if (jsPartName is String) {
             var file = File('${basePath}/${jsPartName}');
-            String md5Str = md5.convert(file.readAsBytesSync()).toString().substring(0, 6);
+            String md5Str = md5.convert(file.readAsBytesSync()).toString().substring(0, 10);
             String newName = jsPartName.replaceFirst('part', 'part-${md5Str}');
             file.renameSync('${basePath}/${newName}');
             match2 = match.replaceFirst(jsPartName, newName) as String;
