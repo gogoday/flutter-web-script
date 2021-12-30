@@ -34,7 +34,7 @@ String getMd5(String path) {
 }
 // 4 在所有的js文件中查找替换文件
 replaceImageName(String originKey, String hashKey) async {
-   String cmdStr = 'sed -i "s/${originKey.replaceAll('/', '\\/')}/${hashKey.replaceAll('/', '\\/')}/g" $basePath/main.dart*js';
+   String cmdStr = 's/${originKey.replaceAll('/', '\\/')}/${hashKey.replaceAll('/', '\\/')}/g';
    print(cmdStr);
    // await shell.run(cmdStr);
 }
