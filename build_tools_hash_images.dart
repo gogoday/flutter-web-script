@@ -23,7 +23,7 @@ handle(List<FileSystemEntity> list) {
     String hashPath = file.path.replaceAll(originKey, hashKey);
     // print('originKey: $originKey, haskKey: $hashKey, pashPath: $hashPath');
     // 重命名文件
-    //file.rename(hashPath);
+    file.rename(hashPath);
     // 在js文件中替换引用的位置
     replaceImageName(originKey, hashKey);
   });
