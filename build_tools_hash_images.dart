@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:crypto/crypto.dart';
-import 'package:process_run/shell.dart';
 
 const basePath = 'build/web/assets';
 
@@ -35,8 +34,7 @@ String getMd5(String path) {
 }
 // 4 在所有的js文件中查找替换文件
 replaceImageName(String originKey, String hashKey) async {
-   var shell = Shell();
-   String cmdStr = 'sed -i \'s/${originKey.replaceAll('/', '\\/')}/${hashKey.replaceAll('/', '\\/')}/g\' $basePath/main.dart*js';
-   print('cmdStr: $cmdStr');
-   await shell.run(cmdStr);
+   String cmdStr = 'sed -i "s/${originKey.replaceAll('/', '\\/')}/${hashKey.replaceAll('/', '\\/')}/g" $basePath/main.dart*js';
+   print(cmdStr);
+   // await shell.run(cmdStr);
 }
